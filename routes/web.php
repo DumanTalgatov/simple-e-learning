@@ -42,3 +42,11 @@ Route::get('/dashboard', 'App\Http\Controllers\EnrollmentController@dashboard')-
 Route::get('/dashboard/{user}/{course}/approve', 'App\Http\Controllers\EnrollmentController@approve')->name('enrollment.approve');
 
 Route::get('/dashboard/{user}/{course}/disapprove', 'App\Http\Controllers\EnrollmentController@disapprove')->name('enrollment.disapprove');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

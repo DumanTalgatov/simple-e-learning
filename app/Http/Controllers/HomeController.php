@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Course;
-use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -15,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -25,13 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $courses = Course::all();
-        foreach ($courses as $course) {
-            $course->author = User::find($course->user_id);
-        }
-        if ($courses->isEmpty()) {
-            \Session::flash('course', 'No Courses Created.');
-        }
-        return view('courses', compact('courses'));
+        return view('home');
     }
 }
